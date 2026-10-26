@@ -7,11 +7,24 @@ maintainers:
   - project_id: "lima"
     org: "lima-vm"
     teams:
+      # "project-maintainers" is the name validated by CNCF Automation (https://github.com/cncf/automation).
+      # This team does not exist as a team on GitHub (https://github.com/orgs/lima-vm/teams).
+      # Note that the GitHub team @lima-vm/maintainers includes both Committers and Reviewers.
+      # Reviewers are NOT recognized as "Maintainers" in the CNCF terminology.
       - name: "project-maintainers"
-        members:
+        members: &project_maintainers_members
           - AkihiroSuda
           - jandubois
           - afbjorklund
           - balajiv113
           - norio-nomura
           - unsuman
+      # "Committers" defined in the Lima terminology (see https://lima-vm.io/docs/community/governance/) are recognized as "Maintainers" in the CNCF terminology.
+      # GitHub team: @lima-vm/committers
+      - name: "committers"
+        members: *project_maintainers_members
+      # "Reviewers" defined in the Lima terminology are NOT recognized as "Maintainers" in the CNCF terminology.
+      # GitHub team: @lima-vm/reviewers
+      - name: "reviewers"
+        members:
+          - nirs
